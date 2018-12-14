@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>商品详情</title>
+	<meta name="renderer" content="webkit"><!-- 启用360浏览器的极速模式(webkit) -->
+	<link rel="icon" href="./favicon.ico"  type="image/x-icon">
+	<link rel="stylesheet" href="./static/css/AnCss/AnIndex.css">
+	<link rel="stylesheet" href="./static/css/AnCss/default.css">
+	<link rel="stylesheet" href="./static/css/AnCss/AnMain.css">
+	<style>
+	/*body *{box-sizing: border-box;border:1px solid blue}*/
+	</style>
+</head>
+<body>
+	<div class="MaxAn" AnType="topNavZW"></div>
+	<div class="MaxAn" AnType="topNav" styletype="secondary">
+		<div class="list" >
+			<svg class="icon" aria-hidden="true" AnUrl="./list.html">
+  			  <use xlink:href="#icon-fanhui"></use>
+			</svg>
+		</div>
+		<div class="search">
+			<div>
+				<div class="logo">
+					<svg class="icon" aria-hidden="true">
+		  			  <use xlink:href="#icon-sousuo"></use>
+					</svg>
+				</div>
+				<input type="text" placeholder="搜搜看">
+			</div>
+		</div>
+		<div class="message">
+			<svg class="icon" aria-hidden="true" AnUrl="./shoppingCartNone.html">
+  			  <use xlink:href="#icon-gouwuche"></use>
+			</svg>
+		</div>
+		<br style="clear:both"/>
+		
+	</div>
+	
+	<div class="MaxAn" AnType="menu">
+		<ul class="list">
+			<li class="synthesize">综合</li>
+			<li class="salesVolume">销量</li>
+			<li class="newGoods">新品</li>
+			<li class="price">价格</li>
+		</ul>
+	</div>
+
+	<div class="MaxAn" AnType="selectPrice" style="display:none">
+		<ul class="autoSelect">
+			<li>100以下</li>
+			<li>100-200</li>
+			<li>1000以上</li>
+		</ul>
+		<ul class="select">
+			<li>区间</li>
+			<li class="min">
+				<!-- onkeyup="value=value.replace(/[^\d]/g,'')" 为强制输入数字-->
+				<input type="text" onkeyup="value=value.replace(/[^\d]/g,'')">
+			</li>
+			<li class="mid">-</li>
+			<li class="max">
+				<input type="text" onkeyup="value=value.replace(/[^\d]/g,'')">
+			</li>
+			<li class="confirm">确认</li>
+		</ul>
+	</div>
+
+
+	<div class="MaxAn" AnType="goodsListMain"></div>
+
+</body>
+<script src="./static/js/jquery-1.8.3.min.js"></script>
+<script src="./static/js/AnJs/AnIndex.js"></script>
+<script src="./static/js/iconfont.js"></script>
+<script src="./static/js/AnJs/AnMain.js"></script>
+<script src="./static/js/AnJs/AnPackage.js"></script>
+<script>
+	window.onload=function(){
+		An.html.pageGoodsDetails();
+		//postType: 	
+		//		0: 综合
+		//		1: 销量
+		//		2: 价格
+		//postTypeOrder:
+		//		true: 正序
+		//		false：倒序
+		var GDPStatus = {
+			"postType":"0",
+			"postTypeOrder":true,
+			"priceMin":"",
+			"priceMax":"",
+			"goodsCode":"",
+
+		}
+		var postTypeOrder = true;
+		// -------------------------------------------//start
+			
+		//发送 最值区间请求
+		$(".MaxAn[AnType='selectPrice'] .select .confirm").click(function(){
+			var obj={};
+			var min = $(".MaxAn[AnType='selectPrice'] .select .min input").val();
+			var max = $(".MaxAn[AnType='selectPrice'] .select .max input").val();
+			min==""?min=0:min=min;
+			max==""?max=0:max=max;
+			if(min>max){
+				$(".MaxAn[AnType='selectPrice'] .select .min input").attr("value","");
+				$(".MaxAn[AnType='selectPrice'] .select .max input").attr("value","");
+				return;
+			}else if(min != 0 || max != 0){
+				obj.min=min;
+				obj.max=max;
+				GDPStatus.priceMin=min;
+				GDPStatus.priceMax=max;
+				//obj 为最值区间
+				console.log(GDPStatus);
+			}
+		});
+
+		//默认请求一次数据
+		An.source.addGoodsListMain(addGoodsListMain_json);
+
+
+		//用户点击 分类 筛选并重新请求数据
+		$(".MaxAn[AnType='menu'] .list").on("click",function(e){
+			postTypeOrder = !postTypeOrder;
+			GDPStatus.postTypeOrder=postTypeOrder;
+		    var zhi =  $(e.target).attr("class");//获取当前点击的类
+		    console.log(zhi);
+            switch(zhi){
+              case "synthesize":
+                GDPStatus.postType="0";
+                break;
+              case "salesVolume":
+                GDPStatus.postType="1";
+                break;
+              case "newGoods":
+                GDPStatus.postType="2";
+                break;
+              default:
+              break;
+            }
+			$(".MaxAn[AnType='goodsListMain']").html("");//清空商品内容
+			An.source.addGoodsListMain(addGoodsListMain_json);//根据类再次请求数据并调用函数
+		});
+
+
+		//滑动到一定程度 再请求一次数据
+		$(window).scroll(function () {
+		        //下面这句主要是获取网页的总高度，主要是考虑兼容性所以把Ie支持的documentElement也写了，这个方法至少支持IE8
+		        var htmlHeight = $(document).height();  
+		        //clientHeight是网页在浏览器中的可视高度，
+		        var clientHeight = $(window).height(); 
+		        //scrollTop滚动条到顶部的垂直高度
+		        var scrollTop = $(document).scrollTop(); 
+		        //通过判断滚动条的top位置与可视网页之和与整个网页的高度是否相等来决定是否加载内容；
+		        var he = scrollTop + clientHeight;
+		        if (he >= htmlHeight * 0.9) {
+					//处理请求
+		            An.source.addGoodsListMain(addGoodsListMain_json);
+
+		        }
+		        //console.log("滚动条位置：" + scrollTop);
+		        //console.log("可视高度：" + clientHeight);
+		        //console.log("网页总高度" + htmlHeight);
+		    });
+
+
+
+
+		// -------------------------------------------//over
+		An.main.reloadAdd();
+		An.Public.ForInSetCenter(setDivCenterArray);//设置位置  此行代码必须在最后执行
+	}
+</script>
+</html>

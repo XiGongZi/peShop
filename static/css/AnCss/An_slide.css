@@ -1,0 +1,50 @@
+/*slideShow start*/
+.MaxAn[AnType="banner_Full"] {
+	/*margin-top:var(--topNav-boxHei);*/
+	/*height:300px;*/
+}
+.MaxAn[AnType="banner_Full"] .slideShow{
+	width:100%;
+	height:;
+	padding-top:0px !important;
+	position:absolute;
+}
+.MaxAn[AnType="banner_Full"] .slideShow a{
+	width:100%;
+}
+.MaxAn[AnType="banner_Full"] .slideShow a img{
+	width:100%;
+	height:;
+	position:absolute;
+	z-index:;
+}
+/*小圆点*/
+.MaxAn[AnType="banner_Full"] .slideCir {
+	position:absolute;
+	top:225px;
+	left:0px;
+	/*border:1px solid red;*/
+	z-index:100;
+}
+.MaxAn[AnType="banner_Full"] .slideCir div{
+	 cursor:pointer;
+	
+	 border-radius:50%;
+	 width:10px;
+	 height:10px;
+	 float:left;
+	 margin-right:10px;
+	 opacity:0.8;
+	
+}
+/*圆角start*/
+.MaxAn[AnType="banner_Full"] .slideCirS{
+	width:;
+	border-radius:50%;
+	background:#E8BB3F;
+}
+.MaxAn[AnType="banner_Full"] .slideCirC{
+	width:;
+	border-radius:50%;
+	background:#fff;
+}

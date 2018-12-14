@@ -1,0 +1,161 @@
+/*边距*/
+*{    
+  margin:0;   
+ padding:0;   
+} 
+/*取消聚焦边框样式 */
+:focus {  
+ outline: 0;  
+}  
+/*输入框*/
+input{
+	/*此段可修改默认框大小字号字色等*/
+	/*取消默认框和选中样式框*/
+	border:none;
+	outline:none;
+}
+img{
+	 vertical-align:bottom;
+	 /* 取消图片之间间距 */
+	}
+/*取消超链接下划线*/
+a{
+	text-decoration:none;
+}
+/*表单中小组边框*/
+fieldset,img {    
+ border:0;   
+}   
+/*清除所有字体默认样式*/
+address,caption,cite,code,dfn,em,strong,th,var {   
+    font-style:normal;   
+    font-weight:normal;   
+}   
+/* tables still need 'cellspacing="0"' in the markup */  
+/*表格边框属性（是否设置为单边框）*/
+table {  
+ border-collapse: separate;  
+ border-spacing: 0;  
+}  
+/*表格标题，表头文本左对齐*/
+caption, th, td {  
+ text-align: left;  
+ font-weight: normal;  
+}  
+/*清除列表前修饰物*/
+ol,ul {   
+   list-style:none;   
+}   
+h1,h2,h3,h4,h5,h6 {   
+  font-size:100%;   
+   font-weight:normal;   
+}   
+abbr,acronym { border:0;   
+}
+html, body, div, span, applet, object, iframe,  
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,  
+a, abbr, acronym, address, big, cite, code,  
+del, dfn, em, font, img, ins, kbd, q, s, samp,  
+small, strike, strong, sub, sup, tt, var,  
+dl, dt, dd, ol, ul, li,  
+fieldset, form, label, legend,  
+table, caption, tbody, tfoot, thead, tr, th, td {  
+ margin: 0;  
+ padding: 0;  
+ border: 0;  
+ outline: 0;  
+/* 字体样式设置为遗传父代*/
+ font-weight: inherit;  
+ font-style: inherit;  
+ font-size: 100%;  
+ font-family: inherit;  
+ vertical-align: baseline;  
+}  
+/* remember to define focus styles!  
+/*清除引用两边的引号*/
+blockquote:before, blockquote:after,  
+q:before, q:after {  
+ content: "";  
+}  
+/*清除引号样式*/
+blockquote, q {  
+ quotes: "" "";  
+}
+/*对错号*/
+.symbol_GreenRight:before{
+	content: '\2714' ;
+	color:#26AD9C;
+	font-size:16px;
+}
+.symbol_RedWrong:before{
+	content: '\2716' ;
+	color:red;
+	font-size:16px;
+}
+/*临时使用submit样式*/
+.submit{
+	background:#26AD9C;
+}
+/*提示信息*/
+.redColorTips{
+	color:red;
+}
+.greenColorTips{
+	color:green;
+}
+
+
+span {
+    position: relative;
+
+}
+
+.regular-checkbox {
+            display: none;
+        }
+            /*第二步定义现在复选框样式*/
+            .regular-checkbox + label {
+                position: relative;
+                display: inline-block;
+                /*lable是内联元素所以需要加inline-block*/
+                padding: 7px;
+                   	width:30px;
+    				height:30px;
+                /*设置复选框大小*/
+                background-color: #fafafa;
+                /*设置背景颜色*/
+                border-radius: 50%;
+                /*复选框border*/
+                border: 1px solid #CACACA;
+                box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+                /*创建的阴影效果  这里需要了解box-shadow的属性，前三个值分别是 
+                    阴影离开横方向的距离   :offset-x
+                    阴影离开纵方向的距离   ：offset-y
+                    阴影的模糊半径： 
+                    阴影的颜色 ：   
+                */
+            }
+                /*第三部分做一个active的效果*/
+                .regular-checkbox + label:active, .regular-checkbox + label:checked + label:active {
+                    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+                }
+            /*选中之后的样式*/
+            .regular-checkbox:checked + label {
+                background-color: #E9ECEE;
+                box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            }
+                /*选中后的效果*/
+                .regular-checkbox:checked + label:after {
+                    content: '\2714';
+                    /*这是一个对勾*/
+                    position: absolute;
+                    font-size: 48px;
+                    /*设置对勾的大小*/
+                    top: -13px;
+                    left: 4px;
+                    /*设置位置的偏向*/
+                    color: red;
+                    /*设置颜色*/
+                    font-weight: bold;
+                    /*设置对勾的粗细*/
+                }

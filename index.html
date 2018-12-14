@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>首页</title>
+	<meta name="renderer" content="webkit"><!-- 启用360浏览器的极速模式(webkit) -->
+	<link rel="icon" href="./favicon.ico"  type="image/x-icon">
+	<link rel="stylesheet" href="./static/css/AnCss/AnIndex.css">
+	<link rel="stylesheet" href="./static/css/AnCss/default.css">
+	<link rel="stylesheet" href="./static/css/AnCss/AnMain.css">
+	<link rel="stylesheet" href="./static/css/AnCss/An_slide.css">
+	<style>
+	/*body *{box-sizing: border-box;border:1px solid blue}*/
+	</style>
+</head>
+<body>
+<div class="MaxAn" AnType="topNavZW"></div>
+	<div class="MaxAn" AnType="topNav" styletype="main">
+		<div class="list" >
+			<svg class="icon" aria-hidden="true" AnUrl="./list.html">
+  			  <use xlink:href="#icon-msnui-menu"></use>
+			</svg>
+		</div>
+		<div class="search">
+			<div>
+				<div class="logo">
+					<svg class="icon" aria-hidden="true">
+		  			  <use xlink:href="#icon-sousuo"></use>
+					</svg>
+				</div>
+				<input type="text" placeholder="搜搜看">
+			</div>
+		</div>
+		<div class="message">
+			<svg class="icon" aria-hidden="true" AnUrl="http://www.baidu.com">
+  			  <use xlink:href="#icon-xiaoxi1"></use>
+			</svg>
+		</div>
+	</div>
+	
+	<!-- banner -->
+	<div class="MaxAn" AnType="banner_Full">
+		<div class="slideShow">
+			<a href="http://dl.stream.qqmusic.qq.com/C400003OUlho2HcRHC.m4a?vkey=50B8311540A86C116D21D85B7880FFD41D4A6663D665840493ED7534D15E77CBE65976DEEF178B2797EB7189571F3179A192E4FCBDA2A9B6&guid=5258768510&uin=0&fromtag=66" download></a>
+			<a href="sms:10086"></a>
+			<a href="mailto:863139978@qq.com"></a>
+			<a href=""></a>
+			<a href=""></a>
+			<a href=""></a>
+			<div class="slideCir">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>	
+		</div>
+	</div>
+
+	<!-- 入口 -->
+	<div class="MaxAn" AnType="enter_ten"></div>
+	<!-- 商品展示 -->
+	<div class="goodsShow"></div>
+</body>
+<script src="./static/js/jquery-1.8.3.min.js"></script>
+<script src="./static/js/AnJs/AnIndex.js"></script>
+<script src="./static/js/iconfont.js"></script>
+<script src="./static/js/AnJs/AnMain.js"></script>
+<script src="./static/js/AnJs/AnPackage.js"></script>
+	<script>
+	var Banner_json=[
+	{
+		"add":"./static/image/banner_1.jpg",
+		"mainColor":"#F7F2E4"
+	},
+	{
+		"add":"./static/image/banner_2.jpg",
+		"mainColor":"#95BAE5"
+	},
+	{
+		"add":"./static/image/banner_3.jpg",
+		"mainColor":"#C51A00"
+	},
+	{
+		"add":"./static/image/banner_4.jpg",
+		"mainColor":"#6E001B"
+	},
+	{
+		"add":"./static/image/banner_5.jpg",
+		"mainColor":"#B8C1EB"
+	},
+	{
+		"add":"./static/image/banner_6.jpg",
+		"mainColor":"#668AC7"
+	}
+	];
+	addBanner(Banner_json);
+	function addBanner(banner_json){
+		$.each(banner_json,function(i,n){
+			$(".slideShow>a").eq(i).html("<img src='"+n.add+"'>");
+		});
+	}
+	</script>
+<script src="./static/js/AnJs/An_slide.js"></script>
+<script>
+	window.onload=function(){
+		An.html.pageIndex();
+		An.main.innerGoods2(goodsTitle_json);//添加商品展示
+		// -------------------------------------------//start
+			An.source.enter_ten_bg(enten_ten_json);//加载 内容
+		
+		// -------------------------------------------//over
+	An.main.reloadAdd();
+	An.Public.ForInSetCenter(setDivCenterArray);//设置位置  此行代码必须在最后执行
+	}
+</script>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>店铺详情</title>
+	<meta name="renderer" content="webkit"><!-- 启用360浏览器的极速模式(webkit) -->
+	<link rel="icon" href="./favicon.ico"  type="image/x-icon">
+	<link rel="stylesheet" href="./static/css/AnCss/AnIndex.css">
+	<link rel="stylesheet" href="./static/css/AnCss/default.css">
+	<link rel="stylesheet" href="./static/css/AnCss/AnMain.css">
+	<link rel="stylesheet" href="./static/css/AnCss/An_slide.css">
+	<style>
+	/*body *{box-sizing: border-box;border:1px solid blue}*/
+	/*.slideshow a{width:100%;}*/
+	/*.slideshow img{width:100%;}*/
+	</style>
+</head>
+<body>
+	<div class="MaxAn" AnType="topNavZW"></div>
+	<div class="MaxAn" AnType="topNav" styletype="secondary">
+		<div class="list" >
+			<svg class="icon" aria-hidden="true" AnUrl="./index.html">
+  			  <use xlink:href="#icon-fanhui"></use>
+			</svg>
+		</div>
+		<div class="search">
+			<div>
+				<div class="logo">
+					<svg class="icon" aria-hidden="true">
+		  			  <use xlink:href="#icon-sousuo"></use>
+					</svg>
+				</div>
+				<input type="text" placeholder="店铺内搜索">
+			</div>
+		</div>
+		<div class="message">
+			<svg class="icon" aria-hidden="true" AnUrl="./login.html">
+  			  <use xlink:href="#icon-more"></use>
+			</svg>
+		</div>
+	</div>
+
+<!-- shop information -->
+<div class="MaxAn" AnType="parti_shopInfo">
+	<div class="title">
+		<div class="MaxAn" AnType="space40px"></div>
+		<div class="headImg">
+			<div><img src="./static/image/shopHeadImg/170727_8h6dckde611bcehib9jf167259798_1000x1000.jpg" alt=""></div>
+		</div>
+		<div class="MaxAn" AnType="space40px"></div>
+		<div class="shopName">
+			<div class="MaxAn" AnType="space40px"></div>
+			<div class="name">九阳专卖店</div>
+		</div>
+		<div class="link">
+			<!-- <div class="MaxAn" AnType="space40px"></div> -->
+			<!-- <div class="name">店铺</div> -->
+		</div>
+		<div class="MaxAn" AnType="space40px"></div>
+	</div>
+	<div class="body">
+	<div class="MaxAn" AnType="space40px"></div>
+		<span class="moreInfo">
+			<div class="moreInfoUp">20.0万</div>
+			<div class="moreInfoDown">月销量</div>
+		</span>
+		<span class="moreInfo">
+			<div class="moreInfoUp">20.0万</div>
+			<div class="moreInfoDown">收藏数</div>
+		</span>
+		<span class="moreInfo2">
+			<div class="MaxAn" AnType="space40px"></div>
+			<div class="moreInfoUp">描述相符：<b style="color:red">9.9</b></div>
+			<div class="moreInfoDown">质量相符：<b style="color:red">9.8</b></div>
+		</span>
+	<div class="MaxAn" AnType="space40px"></div>
+	</div>
+	<div class="MaxAn" AnType="space40px"></div>
+</div>
+
+
+	
+	<div class="MaxAn" AnType="menu">
+		<ul class="list">
+			<li class="synthesize">综合</li>
+			<li class="salesVolume">销量</li>
+			<li class="newGoods">新品</li>
+			<li class="price">价格</li>
+		</ul>
+	</div>
+
+	<div class="MaxAn" AnType="selectPrice" style="display:none">
+		<ul class="autoSelect">
+			<li>100以下</li>
+			<li>100-200</li>
+			<li>1000以上</li>
+		</ul>
+		<ul class="select">
+			<li>区间</li>
+			<li class="min">
+				<!-- onkeyup="value=value.replace(/[^\d]/g,'')" 为强制输入数字-->
+				<input type="text" onkeyup="value=value.replace(/[^\d]/g,'')">
+			</li>
+			<li class="mid">-</li>
+			<li class="max">
+				<input type="text" onkeyup="value=value.replace(/[^\d]/g,'')">
+			</li>
+			<li class="confirm">确认</li>
+		</ul>
+	</div>
+
+
+	<div class="MaxAn" AnType="goodsListMain"></div>
+
+	
+</body>
+<script src="./static/js/jquery-1.8.3.min.js"></script>
+<script src="./static/js/jquery.easing.min.js"></script>
+<script src="./static/js/AnJs/AnIndex.js"></script>
+<script src="./static/js/iconfont.js"></script>
+<script src="./static/js/AnJs/AnMain.js"></script>
+<script src="./static/js/AnJs/AnPackage.js"></script>
+<script src="./static/js/AnJs/AnSlides.js"></script>
+
+<script>
+	window.onload=function(){
+
+		An.html.pageGoodsDetails();
+		// -------------------------------------------//start
+			
+		// -------------------------------------------//over
+		
+		//默认请求一次数据
+		An.source.addGoodsListMain(addGoodsListMain_json);
+
+		An.main.shoppingCartClickEve();
+		An.main.reloadAdd();
+		An.Public.ForInSetCenter(setDivCenterArray);//设置位置  此行代码必须在最后执行
+	}
+</script>
+</html>
+
+

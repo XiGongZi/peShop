@@ -1,0 +1,5 @@
+.MaxAn[AnType="enter_ten"]{
+	background:var(--main-bg);
+	height:var(--box-height_enterTen);
+	/*margin-top:600px;*/
+}

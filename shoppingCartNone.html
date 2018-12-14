@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>购物车</title>
+	<meta name="renderer" content="webkit"><!-- 启用360浏览器的极速模式(webkit) -->
+	<link rel="icon" href="./favicon.ico"  type="image/x-icon">
+	<link rel="stylesheet" href="./static/css/AnCss/AnIndex.css">
+	<link rel="stylesheet" href="./static/css/AnCss/default.css">
+	<link rel="stylesheet" href="./static/css/AnCss/AnMain.css">
+	<style>
+	/*body *{box-sizing: border-box;border:1px solid blue}*/
+
+	</style>
+</head>
+<body>
+	<div class="MaxAn" AnType="topNavZW"></div>
+	<div class="MaxAn" AnType="topNav" styletype="secondary">
+		<div class="list" >
+			<svg class="icon" aria-hidden="true" AnUrl="./list.html">
+  			  <use xlink:href="#icon-fanhui"></use>
+			</svg>
+		</div>
+		<div class="title">
+			购物车
+		</div>
+		<div class="message">
+			<svg class="icon" aria-hidden="true" AnUrl="./list.html">
+  			  <use xlink:href="#icon-bianji"></use>
+			</svg>
+		</div>
+		<br style="clear:both"/>
+	</div>
+	<div class="MaxAn" AnType="tips_normal" AnShopping="none" style="display:none">
+		<div class="MaxAn" AnType="space300px"></div>
+		<div class="img">
+			<svg class="icon" aria-hidden="true">
+  			  <use xlink:href="#icon-gouwuche"></use>
+			</svg>
+		</div>
+		<div class="MaxAn" AnType="space40px"></div>
+		<div class="tips">购物车空空如也</div>
+		<div class="MaxAn" AnType="space40px"></div>
+		<div class="MaxAn" AnType="button_little" AnChecked="true"  AnUrl="./list.html">去看看</div>
+	</div>
+	<!-- 请求数据加载购物车信息 -->
+	<div class="MaxAn" AnType="shoppingCart_normal_list" AnShopping="block" style="display:block"></div>
+
+	<div class="MaxAn" AnType="topNavZW"></div>
+
+	<div class="MaxAn" AnType="foot_settle">
+		<div class="MaxAn" AnType="space40px"></div>
+		<span class="checkEveryOne">
+			<input type="checkbox"   class="regular-checkbox " id="sa">
+			<label for="check" name="checkEveryOne"></label>
+		</span>
+		<div class="MaxAn" AnType="space40px"></div>
+		<div class="toCheckAll">全选  数量（0） <b style="color:red">$0.0</b></div>
+		<div class="MaxAn" AnType="space40px" style="float:right"></div>
+		<div class="button">去结算</div>
+		<br style="clear:both"/>
+	</div>
+</body>
+<script src="./static/js/jquery-1.8.3.min.js"></script>
+<script src="./static/js/AnJs/AnIndex.js"></script>
+<script src="./static/js/iconfont.js"></script>
+<script src="./static/js/AnJs/AnMain.js"></script>
+<script src="./static/js/AnJs/AnPackage.js"></script>
+<script>
+	window.onload=function(){
+		An.html.pageGoodsDetails();
+		// -------------------------------------------//start
+		// 填充购物车信息
+		An.source.addShoppingCarts(shoppingCart_json);
+		//点击 去结算 向后台发送订单数据
+		$(".MaxAn[AnType='foot_settle'] .button").click(function(){
+			var pageInfo = An.main.shoppingCartSettle_json(An.main.returnEveryInputStatus());
+			console.log(pageInfo);
+		});
+		// -------------------------------------------//over
+		An.main.shoppingCartClickEve();
+		An.main.reloadAdd();
+		An.Public.ForInSetCenter(setDivCenterArray);//设置位置  此行代码必须在最后执行
+	}
+</script>
+</html>

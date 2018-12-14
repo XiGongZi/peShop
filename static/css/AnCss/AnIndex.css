@@ -1,0 +1,96 @@
+:root{/*css变量*/
+	--main-bg_html: #f1f1f1; 
+	--main-bg_search: #fff; 
+	--main-bg_card: #fff; 
+	--main-bg_theme: rgb(210,0,62); 
+	--main-color_theme: rgb(210,0,62); 
+	--main-color: #888; 
+	--bg-topNav-secondary:#fafafa;
+	--bg-list-main:#fff;
+	--color-topNav_icon:#fff;
+	--color-supHead:#333;
+	--color-darkMax:#111;
+	--color-aaa:#aaa;
+	--color-search-icon:#C0C0C0;
+	--color-subHead:red;
+	--color-protoSelect-01:#333;
+	--secondary-color: #000; 
+	--main-bg: rgb(255,255,255);
+	--img_404bg-main:#f1f1f1;
+
+	--button-bg-goodsListMain: rgb(210,0,62);
+	
+	--logo-border-color: rebeccapurple; 
+	--header-height: 68px; 
+	--content-padding: 10px 20px; 
+	--base-line-height: 1.428571429; 
+	--transition-duration: .35s; 
+	--external-link: "external link"; 
+	/*--margin-top: calc(2vh + 20px);*/
+	/*高度*/
+	--box-height_enterTen:162px;
+	
+	--botton-normal-height:100px;
+
+	--widthPer-main:100vw;
+	/*圆角start*/
+		/*左上 右上圆角*/
+		--borderRadius-main:0;
+	/*圆角over*/
+
+	/*content hei*/
+	--topNav-boxHei:12vw;
+	--topNav-icon-boxHei:60px;
+	--topNav-search-boxHei:80px;
+	--user-funcList-hei:120px;
+	--button-borderRadius:16px;
+	--topNav-search-borderRadius:40px;
+	--topNav-search-borderRadius_left:40px 0 0 40px;
+	--topNav-search-borderRadius_right:0 40px 40px 0;
+	--selectPrice-borderRadius:16px;
+	--userPage-PersonalInfo-Hei:240px;
+	--particularPage-evalute-evaNameHei:80px;
+	--particularPage-shopInfo-titleHei:200px;
+	--particularPage-shopInfo-headImgHei:160px;
+
+	
+	--topNav-search-iconHei:60px;
+	--topNav-boxHei-mid:75vw;
+	--selectPrice-boxHei:20vw;
+	--enter_ten__boxHei:41.3vw;
+	--enter_ten__boxHei_icon:11vw;
+	--shoppingMall-boxHei:30.4vw;
+	--goodsList-boxHei:calc(100vh - 12vw);/*商品列表左边列表的高*/
+	--goodsList-first-enlementHei:100px;/*商品列表左边子元素的高*/
+	--goodsList-second-goodsHei:27vw;
+	--goodsList-second-goodsList_imgHei:18vw;
+	--goodsTitle-boxHei:8.85vw;
+	--goodsListMain-boxHei:90vw;
+	--oneLine_inforHei:60px;
+	/*content wid*/
+
+	--shoppingMall-halfWid:50vw;
+	--shoppingMall-quarterWid:24.98vw;
+	--goodsList-firstWid:27vw;
+	--goodsList-secondWid:72vw;
+	--goodsList-second-goodsWid:24vw;
+	/*font*/
+	--font-size-little:24px;
+	--font-size-supHead:38px;
+	--font-size-subHead:26px;
+	--font-size-mid:32px;
+	--font-size-Max:42px;
+	
+	--goods-border_leftRight:90%;
+	--border-main:1px solid #eaeaea;
+	--border-theme:2px solid #eaeaea;
+	--border-list:2px solid #ccc;
+	--border-theme-main:8px solid rgb(210,0,62);
+	--border-theme-min:2px solid rgb(210,0,62);
+	--border-theme-min3:2px solid #ccc;
+	--color-theme-min3:#ccc;
+	/*主题色边框*/
+
+	--margin-main:40px;
+	--button-addSub-height:58px;
+}

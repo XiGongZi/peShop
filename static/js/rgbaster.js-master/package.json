@@ -1,0 +1,25 @@
+{
+  "name": "rgbaster.js",
+  "version": "1.0.0",
+  "description": "A dead simple javascript library for extracting the dominant color(s) from an image.",
+  "main": "rgbaster.min.js",
+  "dependencies": {},
+  "devDependencies": {
+    "rollup": "^0.59.1",
+    "rollup-plugin-uglify": "^4.0.0"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/briangonzalez/rgbaster.js.git"
+  },
+  "author": "Brian Gonzalez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/briangonzalez/rgbaster.js/issues"
+  },
+  "homepage": "https://github.com/briangonzalez/rgbaster.js#readme"
+}
